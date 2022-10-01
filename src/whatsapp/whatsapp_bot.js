@@ -1,0 +1,1 @@
+import {create, Client } from "@open-wa/wa-automate";

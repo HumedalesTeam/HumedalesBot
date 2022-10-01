@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lMartin3/HumedalesBot/issues"
   },
-  "homepage": "https://github.com/lMartin3/HumedalesBot#readme"
+  "homepage": "https://github.com/lMartin3/HumedalesBot#readme",
+  "dependencies": {
+    "@open-wa/wa-automate": "^4.47.0"
+  }
 }
