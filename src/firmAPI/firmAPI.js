@@ -12,11 +12,20 @@ async function getData() {
   await fetch(url)
     .then((res) => res.text())
     .then((text) => {
-      today_data = text
+      today_data = text.split("\n")
     })
     .catch((err) => console.log(err))
-  // TODO: turn this to an array
-  return today_data
+
+  // Turn the fetch data to an array
+  let today_data_arr = []
+  today_data.map((each_row) => {
+    const parsed_row = each_row.split(",")
+    today_data_arr.push(parsed_row)
+  })
+
+  console.log(today_data_arr)
+
+  return today_data_arr
 }
 
 async function checkIfInRosario(lat, lon) {
@@ -53,7 +62,7 @@ async function checkIfInRosario(lat, lon) {
 async function createDatasetToday() {
   const today_data = getData()
 }
-const check = await checkIfInRosario("-32.991423", "-60.712546")
-console.log(check)
+// const check = await checkIfInRosario("-32.991423", "-60.712546")
+// console.log(check)
 
-// today_data = getData()
+getData()
