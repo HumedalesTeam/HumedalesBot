@@ -1,0 +1,19 @@
+{
+  "name": "humedalesbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lMartin3/HumedalesBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lMartin3/HumedalesBot/issues"
+  },
+  "homepage": "https://github.com/lMartin3/HumedalesBot#readme"
+}
