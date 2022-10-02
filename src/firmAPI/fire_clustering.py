@@ -98,21 +98,21 @@ Event_groups['Last Updated'] = dt.datetime.now()
 # In[117]:
 
 
-from shapely.geometry import Point
-import geopandas as gpd
-from geopandas import GeoDataFrame
+# from shapely.geometry import Point
+# import geopandas as gpd
+# from geopandas import GeoDataFrame
 
-geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
-gdf = GeoDataFrame(df, geometry=geometry)   
+# geometry = [Point(xy) for xy in zip(df['longitude'], df['latitude'])]
+# gdf = GeoDataFrame(df, geometry=geometry)   
 
-# a simple map that comes with geopandas
-world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-ax = world[world.continent == 'South America'].plot(color='white', edgecolor='black')
-gdf.plot(ax=ax, marker='o', color='red', markersize=15)
+# # a simple map that comes with geopandas
+# world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+# ax = world[world.continent == 'South America'].plot(color='white', edgecolor='black')
+# gdf.plot(ax=ax, marker='o', color='red', markersize=15)
 
-minx, miny, maxx, maxy = gdf.total_bounds
-ax.set_xlim(-60.75438881783346, -58.50674748160459)
-ax.set_ylim(-34.387524974821325, -31.886847558311302)
+# minx, miny, maxx, maxy = gdf.total_bounds
+# ax.set_xlim(-60.75438881783346, -58.50674748160459)
+# ax.set_ylim(-34.387524974821325, -31.886847558311302)
 
 
 # In[121]:
