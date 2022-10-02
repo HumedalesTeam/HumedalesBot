@@ -62,3 +62,46 @@ Event_groups['Last Updated'] = dt.datetime.now()
 # else - creating a new fire group with these events
 # def add_new_FireEvent(humedales_today):
     # for i in range(len(humedales_today)-1,0,-1): 
+
+# TBD - to ingest data into the database & table
+# Either keeping this part here, or in another code file
+
+import mysql.connector
+from mysql.connector import Error
+
+try:
+    connection = mysql.connector.connect(host = process.env.MYSQL_HOST,
+                                         user = process.env.MYSQL_USER,
+                                         password = process.env.MYSQL_PASSWORD,
+                                         database = process.env.MYSQL_SCHEMA)
+    if connection.is_connected():
+        db_Info = connection.get_server_info()
+        print("Connected to MySQL Server version ", db_Info)
+        cursor = connection.cursor()
+        cursor.execute("select database();")
+        record = cursor.fetchone()
+        print("You're connected to database: ", record)
+
+except Error as e:
+    print("Error while connecting to MySQL", e)
+
+# finally:
+#     if connection.is_connected():
+#         cursor.close()
+#         connection.close()
+#         print("MySQL connection is closed")
+        
+
+cursor = connection.cursor()
+fireClusters.to_sql(con=connection, name='fireClusters', if_exists='append', flavor='mysql')
+
+# creating column list for insertion
+cols = "`,`".join([str(i) for i in Event_groups.columns.tolist()])
+
+# Insert DataFrame records one by one
+for i, row in Event_groups.iterrows():
+    sql = "INSERT INTO `fireClusters` (`" + cols + "`) VALUES (" + "%s,"*(len(row)-1) + "%s)"
+    cursor.execute(sql, tuple(row))
+
+    # the connection is not autocommitted by default, so we must commit to save our changes
+    connection.commit()
