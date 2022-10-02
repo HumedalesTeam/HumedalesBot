@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 
 async function getData() {
-  // Get the date of the day
+  // Get the date of the day for all Argentina
   let date = new Date()
   const today = date.toISOString().split("T")[0]
   const url =
@@ -27,6 +27,7 @@ async function getData() {
 }
 
 function checkIfInRosario(lat, lon, regions) {
+  // check if the data point is within the wetland region or not
   regions.forEach((region) => {
     const xRange = (region.topLeft[1], region.botRight[1])
     const yRange = (region.topLeft[0], region.botRight[0])
@@ -38,6 +39,7 @@ function checkIfInRosario(lat, lon, regions) {
 }
 
 async function createDatasetToday() {
+  // Filter out only Rosario wetland data from all Argentine fire data
   const regions = [{ topLeft: (-1, -2), botRight: (-3, 4) }]
   const today_data = await getData()
   let dataset = []
