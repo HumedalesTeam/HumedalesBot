@@ -23,46 +23,36 @@ async function getData() {
     today_data_arr.push(parsed_row)
   })
 
-  console.log(today_data_arr)
-
-  return today_data_arr
+  return today_data_arr.slice(1)
 }
 
-async function checkIfInRosario(lat, lon) {
-  const url =
-    "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
-    lat +
-    "&lon=" +
-    lon +
-    "&zoom=18&addressdetails=1"
-  let place_name
-  await fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.address)
-      const address = data.address
-      if (address.hasOwnProperty("state")) {
-        if (address.state == "Santa Fe") {
-          if (address.hasOwnProperty("city")) {
-            if (address.city == "Rosario") {
-              place_name = data.display_name
-            }
-          }
-        }
-      }
-    })
-
-  if (place_name) {
-    return [true, place_name]
-  } else {
-    return [false, "the place is not in Rosario"]
-  }
+async function checkIfInRosario(lat, lon, regions) {
+  regions.forEach((region) => {
+    const xRange = (region.topLeft[1], region.botRight[1])
+    const yRange = (region.topLeft[0], region.botRight[0])
+    if (yRange[0] <= lat <= yRange[1] && xRange[0] <= lon <= xRange[1]) {
+      return true
+    }
+  })
+  return false
 }
 
 async function createDatasetToday() {
-  const today_data = getData()
+  const regions = [{ topLeft: (-1, -2), botRight: (-3, 4) }]
+  const today_data = await getData()
+  let dataset = []
+  today_data.forEach((ele) => {
+    const lat = ele[1]
+    const lon = ele[2]
+    const inRosario = checkIfInRosario(lat, lon, regions)
+    if (inRosario) {
+      dataset.push(ele)
+    }
+  })
+  return dataset
 }
-// const check = await checkIfInRosario("-32.991423", "-60.712546")
 // console.log(check)
 
-getData()
+// getData()
+
+// createDatasetToday()
