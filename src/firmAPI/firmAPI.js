@@ -26,7 +26,7 @@ async function getData() {
   return today_data_arr.slice(1)
 }
 
-async function checkIfInRosario(lat, lon, regions) {
+function checkIfInRosario(lat, lon, regions) {
   regions.forEach((region) => {
     const xRange = (region.topLeft[1], region.botRight[1])
     const yRange = (region.topLeft[0], region.botRight[0])
