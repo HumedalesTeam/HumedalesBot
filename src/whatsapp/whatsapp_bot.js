@@ -58,6 +58,14 @@ async function start(whatsappClient) {
 
     client.onMessage(async (message)=>{
         console.log(message.body);
+        if(message.body==".alert") {
+            await sendAlert({
+                distance: 20,
+                nodes: 5,
+                imageUrl: "https://httpbin.org/image/jpeg"
+            });
+            return;
+        }
         console.log(chatStatus[message.chatId] ?? "none");
         if(!chatStatus[message.chatId]) {
             chatStatus[message.chatId] = ST_MAIN_MENU;
@@ -102,7 +110,27 @@ async function start(whatsappClient) {
                     break;
             }
         }
-    });   
+    });
+}
+
+
+async function sendAlert(alertData) {
+    var ids = await users.getSubscribedIDs();
+    console.log(ids);
+    for(var i=0;i<ids.length;i++) {
+        console.log(`Id: ${ids[i]}`);
+        try {
+            var chat = await client.getChatById(ids[i]);
+            console.log(`Chat is ${chat}`);
+            console.log(chat);
+            if(chat!=null) {
+                await client.sendImage(chat.id, alertData.imageUrl, 'filename.jpeg', 
+                loc.alert.replace("%DISTANCE%", alertData.distance).replace("%NODES%", alertData.nodes))
+            }
+        } catch(err) {
+
+        }
+    }
 }
 
 

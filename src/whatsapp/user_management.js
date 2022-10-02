@@ -16,7 +16,21 @@ export async function modifyUserSubscription(waId, subscribe) {
     var text = await response.text();
 }
 
+// TODO FUTURE: AREA filtering
+export async function getSubscribedIDs() {
+    const response = await fetch(process.env.API_ENDPOINT+"/wa/subscriberlist/", {headers: { "x-api-key": process.env.X_API_KEY}})
+    var parsed = await response.json();
+    var result = [];
+    parsed.forEach(p=>{
+        if(p.whatsapp_id!=null) {
+            result.push(p.whatsapp_id);
+        }
+    });
+    return result;
+}
+
 export default {
     checkIfUserIsSubscribed: checkIfUserIsSubscribed,
-    modifyUserSubscription: modifyUserSubscription
+    modifyUserSubscription: modifyUserSubscription,
+    getSubscribedIDs: getSubscribedIDs
 }
