@@ -2,7 +2,7 @@ import {create, Client, QRFormat, QRQuality } from "@open-wa/wa-automate";
 import loc from "./localization/es_AR.json" assert { type: 'json' }; // this assertion is required
 const ST_MAIN_MENU = "main";
 const STATUS_B = "";
-
+import users from "./user_management";
 let client;
 
 /*
@@ -54,7 +54,7 @@ async function start(whatsappClient) {
     }
     await client.sendText("120363044984461166@g.us", "hello!");
 
-    client.onMessage(message=>{
+    client.onMessage(async (message)=>{
         console.log(message.body);
         console.log(chatStatus[message.chatId] ?? "none");
         if(!chatStatus[message.chatId]) {
@@ -69,7 +69,7 @@ async function start(whatsappClient) {
                     switch(opt) {
                         case 1:
                             //TODO verify if the user is NOT signed up
-                            if(2+2==4) {
+                            if(await users.checkIfUserIsSubscribed(message.chatId)) {
                                 client.sendText(message.chatId, loc.successfullySubscribed);
                             } else {
                                 client.sendText(message.chatId, loc.alreadySubscribed);
@@ -97,10 +97,7 @@ async function start(whatsappClient) {
                     break;
             }
         }
-    });
-
-
-    
+    });   
 }
 
 
