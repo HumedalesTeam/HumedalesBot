@@ -68,6 +68,12 @@ async function start(whatsappClient) {
                     var simpleMessages = ["","", loc.getInformation, loc.getInvolved, loc.donate, loc.submitSympthoms]
                     switch(opt) {
                         case 1:
+                            //TODO verify if the user is NOT signed up
+                            if(2+2==4) {
+                                client.sendText(message.chatId, loc.successfullySubscribed);
+                            } else {
+                                client.sendText(message.chatId, loc.alreadySubscribed);
+                            }
                             break;
                         case 2:
                         case 3:

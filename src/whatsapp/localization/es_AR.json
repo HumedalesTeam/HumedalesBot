@@ -2,7 +2,7 @@
     "welcomeScreen":"Hola! Soy ignis, un bot diseñado por la cumindad para informarte en tiempo real sobre el estado de los humedales y recomendaciones para tu salud. En qué puedo ayudarte?",
     "initialMenuChoices":"1- Accedé a información en tiempo real\n2- PLACEHOLDER\n3- Calidad del aire\n4- Quiero involucrarme\n5- Quiero donar\n6- Dar de baja",
     "invalidChoice": "Perdón, no entendí. Por favor elegí una de las opciones mencionadas anteriormente, escribí solo el número.",
-    "successfullySubscribed": "",
+    "successfullySubscribed": "Perfecto! Te subscribiste al sistema de alerta de humedales. Cuando se detecte un incendio nuevo vas a recibir un mensaje por este medio.",
     "alreadySubscribed": "",
     "successfullyUnsubscribed": "Entendido, ya no vas a recibir más notificaciones. Si cambiás de opinión más tarde, podés volver a subscribirte de la misma forma.",
     "notSubscribed": "No estás subscripto al sistema de notificaciones.",
