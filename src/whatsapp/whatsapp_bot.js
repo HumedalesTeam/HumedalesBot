@@ -1,8 +1,10 @@
 import {create, Client, QRFormat, QRQuality } from "@open-wa/wa-automate";
-import loc from "./localization/es_AR.json" assert { type: 'json' }; // this assertion is required
+import { readFile } from 'fs/promises';
+
+const loc = JSON.parse(await readFile(new URL('./localization/es_AR.json', import.meta.url)));
 const ST_MAIN_MENU = "main";
 const STATUS_B = "";
-import users from "./user_management";
+import users from "./user_management.js";
 let client;
 
 /*
@@ -69,7 +71,10 @@ async function start(whatsappClient) {
                     switch(opt) {
                         case 1:
                             //TODO verify if the user is NOT signed up
-                            if(await users.checkIfUserIsSubscribed(message.chatId)) {
+                            var isSubscribed = await users.checkIfUserIsSubscribed(message.chatId);
+                            console.log(isSubscribed);
+                            if(!isSubscribed) {
+                                await users.modifyUserSubscription(message.chatId, true);
                                 client.sendText(message.chatId, loc.successfullySubscribed);
                             } else {
                                 client.sendText(message.chatId, loc.alreadySubscribed);
