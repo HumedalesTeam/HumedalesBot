@@ -1,0 +1,14 @@
+{
+    "welcomeScreen":"Hello! I'm Ignis, a chatbot designed by the community to keep you informed of wildfires in the region and health advice. What can I help you with?",
+    "initialMenuChoices":"1- Subscribe to real-time alerts\n2- About Ignis\n3- Current air quality\n4- Get involved\n5- Donate\n6- Unsubscribe from alerts",
+    "invalidChoice": "Sorry, I didn't quite get that. Please try writing a number from the options presented above.",
+    "successfullySubscribed": "Perfect! You just subscribed to the real-time alert system. You will get notifications when a new fire is detected.",
+    "alreadySubscribed": "You are already subscribed to the system! If you want to unsubscribe please select option 6.",
+    "successfullyUnsubscribed": "Got it, you will no longer get alerts.",
+    "notSubscribed": "You are not subscribed!",
+    "submitSympthoms": "If you think you have sympthoms caused by smoke inhalation, fill out the google forms:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdY03-bm0dHFD_hUH1j7JjLYLwFf8hRrxrjT3Ed6W_9YO36VA/viewform\n\nThe data sent is completely anonymized, meaning that it doesn't contain any personal identifiable information",
+    "donate": "You can donate to the following entities on Instagram:\nAuthorities: \n-Rosario Fire Department (@bomberosra)\n-Rescue team (@rescatistasdsur)\n-Multisectorial Humedales(@multisectorialhumedales)",
+    "getInvolved": "Write to Santa Fé's deputies and senators at \nhttps://diputadossantafe.gov.ar/web/contacto/; https://www.senadosantafe.gob.ar/ \n\nWrite to COFEMA:\nhttps://www.argentina.gob.ar/cofema \n\n- 911 Emergencies\n- 100 Fire dept.\n- 101 Police dept.\n- 107 Medical emergency\n- 105 Environmental emergency\n- 142 Missing minors",
+    "getInformation": "👉 Follow advice given by your doctor, specially if you have any respiratory disease.\n👉 Consider evacuating the area if you have trouble breathing. \n👉 Seek medical help if you have any sympthoms.\n👉 If you are pregnant, keep recieving antenatal care.",
+    "alert": "🔥 A fire has been detected ```%DISTANCE%``` kilometers away from Rosario. Size: ```%NODES%``` nodes."
+}
