@@ -1,6 +1,6 @@
 {
     "welcomeScreen":"Hola! Soy ignis, un bot diseñado por la cumindad para informarte en tiempo real sobre el estado de los humedales y recomendaciones para tu salud. En qué puedo ayudarte?",
-    "initialMenuChoices":"1- Accedé a información en tiempo real\n2- PLACEHOLDER\n3- Calidad del aire\n4- Quiero involucrarme\n5- Quiero donar\n6- Dar de baja",
+    "initialMenuChoices":"1- Accedé a información en tiempo real\n2- Obtener información\n3- Cómo involucrarse\n4- Quiero donar\n5- Registro de síntomas\n6- Dar de baja",
     "invalidChoice": "Perdón, no entendí. Por favor elegí una de las opciones mencionadas anteriormente, escribí solo el número.",
     "successfullySubscribed": "Perfecto! Te subscribiste al sistema de alerta de humedales. Cuando se detecte un incendio nuevo vas a recibir un mensaje por este medio.",
     "alreadySubscribed": "Ya estás subscripto al sistema! Para dar de baja seleccioná la opción 6",
@@ -10,5 +10,5 @@
     "donate": "Podés donar a las siguientes entidades en Instagram:\n-Autoridades: Bomberos (@bomberosra)\n-Rescatistas (@rescatistasdsur)\n-La multisectorial humedales (@multisectorialhumedales)",
     "getInvolved": "Recordales a los diputados y senadores de la Provincia de Santa Fe tu derecho a un ambiente sano\nhttps://diputadossantafe.gov.ar/web/contacto/; https://www.senadosantafe.gob.ar/ \n\nEscribile a la COFEMA:\nhttps://www.argentina.gob.ar/cofema \n\n- 911 Emergencias Coordinadas\n- 100 Bomberos\n- 101 Policía\n- 107 Emergencia médica\n- 105 Emergencia ambiental\n- 142 Personas menores extraviadas",
     "getInformation": "👉Seguí lo que te aconseje tu médico u otro proveedor de atención médica sobre los medicamentos y sobre su plan para manejar problemas respiratorios, si tenes asma u otra enfermedad pulmonar.\n👉Considerá evacuar el área si estas teniendo problemas para respirar. \n👉Consulte a su médico si sus síntomas se empeoran.\n👉Si estas embarazada, seguí recibiendo atención prenatal. Conozca los signos del trabajo de parto y los del trabajo de parto prematuro. Si tenes esos signos, llamá a tu médico o al 911, o vaya al hospital inmediatamente si es seguro ir.",
-    "alert": "🔥 FIRMS detectó un incendio a ```%DISTANCE%``` kilómetros de la ciudad de Rosario que consiste de ```%NODES%``` nodos."
+    "alert": "🔥 FIRMS detectó un incendio a ```%DISTANCE%``` kilómetros de la ciudad de Rosario que consiste de ```%NODES%``` focos."
 }

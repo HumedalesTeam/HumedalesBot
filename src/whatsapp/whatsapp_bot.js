@@ -62,7 +62,7 @@ async function start(whatsappClient) {
             await sendAlert({
                 distance: 20,
                 nodes: 5,
-                imageUrl: "https://httpbin.org/image/jpeg"
+                imageUrl: "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor,MODIS_Terra_Thermal_Anomalies_Day,Reference_Features_15m&CRS=EPSG:4326&TIME=2022-09-13&WRAP=DAY,DAY,X&BBOX=-33.5,-61,-32,-59&FORMAT=image/jpeg&WIDTH=910&HEIGHT=683&AUTOSCALE=FALSE&ts=1664476732816"
             });
             return;
         }
