@@ -59,12 +59,12 @@ async function createDatasetToday() {
     ],
   ]
   const today_data = await getData()
-  console.log("today data is ")
-  console.log(today_data)
+  //   console.log("today data is ")
+  //   console.log(today_data)
   let dataset = []
   today_data.forEach((ele) => {
-    const lat = ele[1]
-    const lon = ele[2]
+    const lat = parseFloat(ele[1])
+    const lon = parseFloat(ele[2])
     const inRosario = checkIfInRosario(lat, lon, regions)
     if (inRosario) {
       dataset.push(ele)
